@@ -1,0 +1,35 @@
+<div class="container py-5">
+    <div class="row">
+        <div class="col-10 mx-auto">
+            <h1>File Upload Status</h1>
+            <!--display error if any-->
+            <div class="alert alert-danger" role="alert" th:if="${!status}">
+                <strong>Error:</strong>
+                <span th:text="${message}"></span>
+            </div>
+
+            <!--display users list-->
+            <table class="table table-striped" th:if="${status}">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">image1</th>
+                    <th scope="col">image2</th>
+                    <!--<th scope="col">similarity</th>
+                    <th scope="col">elapsed</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="image_row, i : ${image_files}">
+                    <th scope="row" th:text="${i.index + 1}"></th>
+                    <td th:text="${image_row.image1}"></td>
+                    <td th:text="${image_row.image2}"></td>
+                    <!--<td th:text="${image_row.similarity}"></td>
+                    <td th:text="${image_row.elapsed}"></td>-->
+                    <!--<td th:text="${user.age}"></td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
