@@ -8,10 +8,10 @@ public class CompareProp {
     private String image1;
     @CsvBindByName
     private String image2;
-    /*@CsvBindByName
+    @CsvBindByName
     private double similarity;
     @CsvBindByName
-    private int elapsed;*/
+    private long elapsed;
 
     public CompareProp() {
     }
@@ -40,7 +40,7 @@ public class CompareProp {
         this.image2 = image2;
     }
 
-    /*public double getSimilarity() {
+    public double getSimilarity() {
         return similarity;
     }
 
@@ -48,11 +48,11 @@ public class CompareProp {
         this.similarity = similarity;
     }
 
-    public int getElapsed() {
+    public long getElapsed() {
         return elapsed;
     }
 
-    public void setElapsed(int elapsed) {
+    public void setElapsed(long elapsed) {
         this.elapsed = elapsed;
-    }*/
+    }
 }

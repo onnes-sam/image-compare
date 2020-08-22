@@ -3,6 +3,7 @@ package com.sre.image.compare.controllers;
 import com.sre.image.compare.domains.CompareProp;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
+import com.sre.image.compare.logic.ImageCompareLogic;
 import org.apache.commons.io.ByteOrderMark;
 import org.apache.commons.io.input.BOMInputStream;
 import org.springframework.stereotype.Controller;
@@ -48,7 +49,12 @@ public class UploadController {
                 List<CompareProp> image_files = csvToBean.parse();
 
                 // TODO: save users in DB?
-
+                long startTime = System.currentTimeMillis();
+                ImageCompareLogic imagelogic = new ImageCompareLogic();
+                double dist_pc = imagelogic.ImageCompare(image_files.get(0).getImage1(),image_files.get(0).getImage1());
+                long estimatedTime = System.currentTimeMillis() - startTime;
+                image_files.get(0).setElapsed(estimatedTime);
+                image_files.get(0).setSimilarity(dist_pc);
                 // save images list on model
                 model.addAttribute("image_files", image_files);
                 model.addAttribute("status", true);
