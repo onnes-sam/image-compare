@@ -56,9 +56,9 @@ public class ImageCompareLogic
         MatOfDMatch matches = new MatOfDMatch();
         matcher.match(descriptors1,descriptors2,matches);
         matcher.knnMatch(descriptors1, descriptors2, dmatchesListOfMat, DescriptorMatcher.BRUTEFORCE_HAMMING);
-        System.out.println(descriptors1.size());
-        System.out.println(descriptors2.size());
-        System.out.println(dmatchesListOfMat.size());
+        //System.out.println(descriptors1.size());
+        //System.out.println(descriptors2.size());
+        //System.out.println(dmatchesListOfMat.size());
         LinkedList<DMatch> total_matchesList = new LinkedList<>();
         LinkedList<DMatch> good_matchesList = new LinkedList<>();
         for (int matchIndx = 0; matchIndx < dmatchesListOfMat.size() ; matchIndx++)
@@ -74,7 +74,7 @@ public class ImageCompareLogic
         }
         good_matches.fromList(good_matchesList);
         total_matches.fromList(total_matchesList);
-        dist_percentage = 100*good_matchesList.size()/total_matchesList.size();
+        dist_percentage = (1 - good_matchesList.size()/total_matchesList.size());
         return dist_percentage;
     }
 }

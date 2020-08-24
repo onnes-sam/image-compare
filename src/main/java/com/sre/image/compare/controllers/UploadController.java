@@ -1,11 +1,15 @@
 package com.sre.image.compare.controllers;
 
+import com.opencsv.CSVWriter;
+import com.opencsv.bean.StatefulBeanToCsv;
+import com.opencsv.bean.StatefulBeanToCsvBuilder;
 import com.sre.image.compare.domains.CompareProp;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.sre.image.compare.logic.ImageCompareLogic;
 import org.apache.commons.io.ByteOrderMark;
 import org.apache.commons.io.input.BOMInputStream;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.Reader;
@@ -21,6 +26,8 @@ import java.util.List;
 
 @Controller
 public class UploadController {
+
+    List<CompareProp> image_files;
 
     @GetMapping("/")
     public String index() {
@@ -46,8 +53,7 @@ public class UploadController {
                         .build();
 
                 // convert `CsvToBean` object to list of users
-                List<CompareProp> image_files = csvToBean.parse();
-
+                image_files = csvToBean.parse();
                 ImageCompareLogic imagelogic = new ImageCompareLogic();
                 int iCompareCount = 0;
                 for (CompareProp image_file: image_files)
@@ -70,5 +76,27 @@ public class UploadController {
         }
 
         return "file-upload-status";
+    }
+
+    @GetMapping("/export-results")
+    public void exportCSV(HttpServletResponse response) throws Exception {
+
+        //set file name and content type
+        String filename = "image_compare_results.csv";
+
+        response.setContentType("text/csv");
+        response.setHeader(HttpHeaders.CONTENT_DISPOSITION,
+                "attachment; filename=\"" + filename + "\"");
+
+        //create a csv writer
+        StatefulBeanToCsv<CompareProp> writer = new StatefulBeanToCsvBuilder<CompareProp>(response.getWriter())
+                .withQuotechar(CSVWriter.NO_QUOTE_CHARACTER)
+                .withSeparator(CSVWriter.DEFAULT_SEPARATOR)
+                .withOrderedResults(false)
+                .build();
+
+        //write all users to csv file
+        writer.write(image_files);
+
     }
 }

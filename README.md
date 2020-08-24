@@ -1,6 +1,11 @@
-# Image Compare
+#Image Compare
 
-API for comparing two images
+API for comparing two images. Uses opencv and springboot to compare two images.
+
+#Getting Started
+
+Launch http://localhost:8080/
+Upload csv and click "Import CSV"
 
 ##Technology Stack:
 * Java 11

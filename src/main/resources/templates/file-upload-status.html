@@ -8,7 +8,9 @@
                 <span th:text="${message}"></span>
             </div>
 
-            <!--display users list-->
+            <span><a  href="" th:href="@{/export-results}">Download results</a></span>
+
+            <!--display images compare list-->
             <table class="table table-striped" th:if="${status}">
                 <thead>
                 <tr>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Upload CSV File Example</title>
+    <title>Upload CSV Image compare file</title>
 
     <!--Bootstrap 4-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -13,10 +13,10 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-6 mx-auto">
-            <h1>Upload CSV File Example</h1>
+            <h1>Upload CSV Image compare file</h1>
             <form method="POST" th:action="@{/upload-csv-file}" enctype="multipart/form-data">
                 <div class="form-group mt-3">
-                    <label for="file">Select a CSV file</label>
+                    <label for="file">Select a CSV file for images compare</label>
                     <input type="file" name="file" class="form-control-file" id="file" accept=".csv">
                 </div>
                 <button type="submit" class="btn btn-primary">Import CSV</button>
