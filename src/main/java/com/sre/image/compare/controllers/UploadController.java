@@ -48,13 +48,17 @@ public class UploadController {
                 // convert `CsvToBean` object to list of users
                 List<CompareProp> image_files = csvToBean.parse();
 
-                // TODO: save users in DB?
-                long startTime = System.currentTimeMillis();
                 ImageCompareLogic imagelogic = new ImageCompareLogic();
-                double dist_pc = imagelogic.ImageCompare(image_files.get(0).getImage1(),image_files.get(0).getImage1());
-                long estimatedTime = System.currentTimeMillis() - startTime;
-                image_files.get(0).setElapsed(estimatedTime);
-                image_files.get(0).setSimilarity(dist_pc);
+                int iCompareCount = 0;
+                for (CompareProp image_file: image_files)
+                {
+                    long startTime = System.currentTimeMillis();
+                    double dist_pc = imagelogic.ImageCompare(image_file.getImage1(),image_file.getImage2());
+                    long estimatedTime = System.currentTimeMillis() - startTime;
+                    image_files.get(iCompareCount).setElapsed(estimatedTime);
+                    image_files.get(iCompareCount).setSimilarity(dist_pc);
+                    ++iCompareCount;
+                }
                 // save images list on model
                 model.addAttribute("image_files", image_files);
                 model.addAttribute("status", true);
