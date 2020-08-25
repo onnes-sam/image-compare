@@ -39,7 +39,7 @@ View: The view consists of a index.html and results page. Based on the loaded AP
 
 ### Building the code
 
-# Importing to IntelliJ
+### Importing to IntelliJ
 Perform the following Steps:
 * `File` > `New` > `Project from Existing Sources...`
 * Select the root folder of this project
@@ -48,20 +48,20 @@ Perform the following Steps:
 * Add JDK 11 in the project structure
    - Please refer: https://www.jetbrains.com/help/idea/sdk.html#configure-external-documentation
 
-# Build
+### Build
 To build:
 ```
 ./mvnw clean install
 ```
-## Run from IntelliJ
+### Run from IntelliJ
 * Right click CompareApplication -> Run/Debug
 
-## Run from Maven
+### Run from Maven
 ```
  mvn spring-boot:run -pl image-compare
 ```
 
-## Build 'fat jar' and run
+### Build 'fat jar' and run
 ```
 mvn clean install
 java -jar image-compare/target/image-compare.jar
