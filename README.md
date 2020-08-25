@@ -24,6 +24,8 @@ Perform the following Steps:
 * Select the root folder of this project
 * Select `Import project from external model`
 * Highlight `Maven` and click `Finish`
+* Add JDK 11 in the project structure
+    Please refer: https://www.jetbrains.com/help/idea/sdk.html#configure-external-documentation
 
 # Build
 To build:
