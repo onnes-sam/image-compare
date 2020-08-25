@@ -78,7 +78,8 @@ public class UploadController {
                     }
                     double dist_pc = imagelogic.ImageCompare(image_file.getImage1(),image_file.getImage2());
                     long estimatedTime = System.currentTimeMillis() - startTime;
-                    image_files.get(iCompareCount).setElapsed(estimatedTime);
+                    double dbl_est_time = (double)estimatedTime/10000;
+                    image_files.get(iCompareCount).setElapsed(dbl_est_time);
                     image_files.get(iCompareCount).setSimilarity(dist_pc);
                     ++iCompareCount;
                 }

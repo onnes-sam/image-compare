@@ -74,7 +74,8 @@ public class ImageCompareLogic
         }
         good_matches.fromList(good_matchesList);
         total_matches.fromList(total_matchesList);
-        dist_percentage = (1 - good_matchesList.size()/total_matchesList.size());
+        double denom = (double)good_matchesList.size()/total_matchesList.size();
+        dist_percentage = (1.0 - denom);
         return dist_percentage;
     }
 }

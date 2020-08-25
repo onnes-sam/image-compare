@@ -11,7 +11,7 @@ public class CompareProp {
     @CsvBindByName
     private double similarity;
     @CsvBindByName
-    private long elapsed;
+    private double elapsed;
 
     public CompareProp() {
     }
@@ -48,11 +48,11 @@ public class CompareProp {
         this.similarity = similarity;
     }
 
-    public long getElapsed() {
+    public double getElapsed() {
         return elapsed;
     }
 
-    public void setElapsed(long elapsed) {
+    public void setElapsed(double elapsed) {
         this.elapsed = elapsed;
     }
 }
