@@ -1,6 +1,9 @@
 ## Image Compare API
 This is an image compare api done as an assignment for SRE. The image compare API uses absolute path names of two images in the form of csv to compare the files. The output is in the form of results csv containing the similarity score and time elapsed to do the comparison.
 
+### Quick Start
+https://github.com/onnes-sam/image-compare
+
 ### Solution Design
 
 The solution is designed to work as a web page working with almost all OS with a browser. The index page consists of a place holder to upload the csv file. Processing the csv file happens with the same API. Once the processing is done and the scores are updated, the link to download the csv is updated on the results page.
@@ -37,28 +40,11 @@ public double ImageCompare(String fileName1, String fileName2)
 View: The view consists of a index.html and results page. Based on the loaded API, the corresponding html is updated and loaded.
 
 
-### Building the code
+### Quick Build
 
-### Importing to IntelliJ
-Perform the following Steps:
-* `File` > `New` > `Project from Existing Sources...`
-* Select the root folder of this project
-* Select `Import project from external model`
-* Highlight `Maven` and click `Finish`
-* Add JDK 11 in the project structure
-   - Please refer: https://www.jetbrains.com/help/idea/sdk.html#configure-external-documentation
-
-### Build
-To build:
 ```
+cd to project folder
 ./mvnw clean install
-```
-### Run from IntelliJ
-* Right click CompareApplication -> Run/Debug
-
-### Run from Maven
-```
- mvn spring-boot:run -pl image-compare
 ```
 
 ### Build 'fat jar' and run
