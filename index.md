@@ -44,15 +44,14 @@ public double ImageCompare(String fileName1, String fileName2)
 
 View: The view consists of a index.html and results page. Based on the loaded API, the corresponding html is updated and loaded.
 
-### API documentation
-Once the application is run, the api documentation can be viewed here:  [API-documentation](http://localhost:8080/swagger-ui.html#/)
-
-
 ### Quick Build and run
 ```
 mvn clean install
 java -jar image-compare/target/compare-0.0.1-SNAPSHOT.jar
 ```
+### API documentation
+Once the application is run, the api documentation can be viewed here:  [API-documentation](http://localhost:8080/swagger-ui.html#/)
+
 ### Latest Releases
 See [the Releases section of the GitHub project](https://github.com/onnes-sam/image-compare/releases) for changelogs for each release version of Image-Compare
 
