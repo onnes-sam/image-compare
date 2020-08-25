@@ -9,10 +9,10 @@ This is an image compare api done as an assignment for SRE. The image compare AP
 - [Latest Releases](#latest-releases)
 
 ### Quick Start
-See the project [Read-Me](https://github.com/onnes-sam/image-compare) here.
+See the project [Read-me](https://github.com/onnes-sam/image-compare) here.
 
 ### Solution Design
-The solution is designed to work as a web page working with almost all OS with a browser. The index page consists of a place holder to upload the csv file. Processing the csv file happens with the same API. Once the processing is done and the scores are updated, the link to download the csv is updated on the results page.
+The solution is designed as a web page to work in an OS (Mac/Windows) with a web browser through API calls. The index page consists of a place holder to upload the csv file. Processing the csv file happens with the same API. Once the processing is done and the scores are updated, the link to download the csv is updated on the results page.
 
 ### Solution Implementation
 The solution follows a Model, View, Controller (MVC) pattern. 
