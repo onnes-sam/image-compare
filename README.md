@@ -17,7 +17,11 @@ API for comparing two images. Uses opencv and springboot to compare two images.
 
 ##Tool Prerequisites:
 * JDK 11 (https://sdkman.io/)
-* IntelliJ IDE (https://www.jetbrains.com/idea/)
+For MacOS, JDK11 can be installed by [following MacOS instructions](https://installvirtual.com/install-openjdk-11-mac-using-brew/)
+For Windows10, JDK11 can be installed by [following Windows instructions](http://techoral.com/blog/java/adoptopenjdk-install-windows.html)
+* IntelliJ IDE Community Edition (https://www.jetbrains.com/idea/)
+[MacOS] (https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC)
+[Windows] (https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC)
 
 # Importing to IntelliJ
 Perform the following Steps:
