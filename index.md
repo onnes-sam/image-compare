@@ -1,15 +1,20 @@
 ## Image Compare API
 This is an image compare api done as an assignment for SRE. The image compare API uses absolute path names of two images in the form of csv to compare the files. The output is in the form of results csv containing the similarity score and time elapsed to do the comparison.
 
+- [Quick start](#quick-start)
+- [Solution Design](#solution-design)
+- [Solution Implementation](#solution-implementation)
+- [API Documentation](#api-documentation)
+- [Quick Build and run](#quick-build-and-run)
+- [Latest Releases](#latest-releases)
+
 ### Quick Start
-https://github.com/onnes-sam/image-compare
+See the project [Read-Me](https://github.com/onnes-sam/image-compare) here.
 
 ### Solution Design
-
 The solution is designed to work as a web page working with almost all OS with a browser. The index page consists of a place holder to upload the csv file. Processing the csv file happens with the same API. Once the processing is done and the scores are updated, the link to download the csv is updated on the results page.
 
 ### Solution Implementation
-
 The solution follows a Model, View, Controller (MVC) pattern. 
 
 Model: The model is of type CompareProp which holds the image locations, similarity and time-elapsed
@@ -40,19 +45,14 @@ public double ImageCompare(String fileName1, String fileName2)
 View: The view consists of a index.html and results page. Based on the loaded API, the corresponding html is updated and loaded.
 
 ### API documentation
-Once the application is run, the api documentation can be viewed here
-http://localhost:8080/swagger-ui.html#/
+Once the application is run, the api documentation can be viewed here:  [API-documentation](http://localhost:8080/swagger-ui.html#/)
 
 
-### Quick Build
-
-```
-cd to project folder
-./mvnw clean install
-```
-
-### Build 'fat jar' and run
+### Quick Build and run
 ```
 mvn clean install
-java -jar image-compare/target/image-compare.jar
+java -jar image-compare/target/compare-0.0.1-SNAPSHOT.jar
 ```
+### Latest Releases
+See [the Releases section of the GitHub project](https://github.com/onnes-sam/image-compare/releases) for changelogs for each release version of Image-Compare
+
