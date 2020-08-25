@@ -3,7 +3,8 @@
 API for comparing two images. Uses opencv and springboot to compare two images.
 
 # Getting Started
-
+* Run the image-compare.jar
+  java -jar image-compare/target/image-compare.jar
 * Launch http://localhost:8080/
 * Upload csv file and click "Import CSV" button
 * The images in the csv will be compared
@@ -24,6 +25,8 @@ Perform the following Steps:
 * Select the root folder of this project
 * Select `Import project from external model`
 * Highlight `Maven` and click `Finish`
+* Add JDK 11 in the project structure
+    Please refer: https://www.jetbrains.com/help/idea/sdk.html#configure-external-documentation
 
 # Build
 To build:
