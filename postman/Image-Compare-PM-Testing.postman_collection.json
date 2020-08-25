@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "0aad5dcd-90fb-4732-ac5c-19eb2c6cff91",
+		"name": "Image-Compare-PM-Testing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.csv-upload",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/sossm/SRE_assignment/image_compare/src/main/resources/error.csv"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/upload-csv-file",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"upload-csv-file"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2.export-image-compare-results",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/export-results",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"export-results"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
