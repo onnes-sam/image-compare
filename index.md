@@ -7,6 +7,7 @@ This is an image compare api done as an assignment for SRE. The image compare AP
 - [API Documentation](#api-documentation)
 - [Quick Build and run](#quick-build-and-run)
 - [Latest Releases](#latest-releases)
+- [API Testing](#api-testing)
 
 ### Quick Start
 See the project [Read-me](https://github.com/onnes-sam/image-compare) here.
@@ -54,4 +55,9 @@ Once the application is run, the api documentation can be viewed here:  [API-doc
 
 ### Latest Releases
 See [the Releases section of the GitHub project](https://github.com/onnes-sam/image-compare/releases) for changelogs for each release version of Image-Compare
+
+### API Testing
+The API can be verified to work through [Postman scripts] (https://github.com/onnes-sam/image-compare/blob/master/postman/Image-Compare-PM-Testing.postman_collection.json)
+Postman can be downloaded here [Windows64] (https://dl.pstmn.io/download/latest/win64) and [MacOS](https://dl.pstmn.io/download/latest/osx)
+Import the collection in Postman and run the scripts
 
