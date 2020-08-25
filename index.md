@@ -59,5 +59,5 @@ See [the Releases section of the GitHub project](https://github.com/onnes-sam/im
 ### API Testing
 The API can be verified to work through [Postman scripts](https://github.com/onnes-sam/image-compare/blob/master/postman/Image-Compare-PM-Testing.postman_collection.json)
 * Postman can be downloaded here [Windows64](https://dl.pstmn.io/download/latest/win64) and [MacOS](https://dl.pstmn.io/download/latest/osx)
-*Import the collection in Postman and run the scripts
+* Import the collection in Postman and run the scripts
 
