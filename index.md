@@ -4,25 +4,38 @@ This is an image compare api done as an assignment for SRE. The image compare AP
 ### Solution Design
 
 The solution is designed to work as a web page working with almost all OS with a browser. The index page consists of a place holder to upload the csv file. Processing the csv file happens with the same API. Once the processing is done and the scores are updated, the link to download the csv is updated on the results page.
+
+### Solution Implementation
+
+The solution follows a Model, View, Controller (MVC) pattern. 
+
+Model: The model is of type CompareProp which holds the image locations, similarity and time-elapsed
+
 ```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+public class CompareProp {
+    @CsvBindByName
+    private String image1;
+    @CsvBindByName
+    private String image2;
+    @CsvBindByName
+    private double similarity;
+    @CsvBindByName
+    private double elapsed;
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Controller: The upload controller has the API's to upload, process a csv and update the csv for the results. 
+
+```markdown
+@PostMapping("/upload-csv-file")
+    public String uploadCSVFile(@RequestParam("file") MultipartFile file, Model model)
+```
+The processing of the csv has the image compare logic which accepts the file names and updates the CompareProp object for similarity and time elapsed
+```markdown
+public double ImageCompare(String fileName1, String fileName2)
+```
+
+View: The view consists of a index.html and results page. Based on the loaded API, the corresponding html is updated and loaded.
+
 
 ### Jekyll Themes
 
