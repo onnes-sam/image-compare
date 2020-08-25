@@ -3,8 +3,8 @@
 API for comparing two images. Uses opencv and springboot to compare two images.
 
 # Getting Started
-* Run the image-compare.jar
-  java -jar image-compare/target/image-compare.jar
+* Run the image-compare.jar using command:
+  java -jar image-compare/target/compare-0.0.1-SNAPSHOT.jar
 * Launch http://localhost:8080/
 * Upload csv file and click "Import CSV" button
 * The images in the csv will be compared
