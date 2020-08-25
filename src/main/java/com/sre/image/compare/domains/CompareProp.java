@@ -13,6 +13,8 @@ public class CompareProp {
     @CsvBindByName
     private double elapsed;
 
+    private boolean isrowerror;
+
     public CompareProp() {
     }
 
@@ -54,5 +56,13 @@ public class CompareProp {
 
     public void setElapsed(double elapsed) {
         this.elapsed = elapsed;
+    }
+
+    public boolean getIsRowError() {
+        return isrowerror;
+    }
+
+    public void setIsRowError(boolean isrowerror) {
+        this.isrowerror = isrowerror;
     }
 }

@@ -69,12 +69,14 @@ public class UploadController {
                 for (CompareProp image_file: image_files)
                 {
                     long startTime = System.currentTimeMillis();
-                    if (image_file.getImage1() == null || image_file.getImage2() == null)
+                    System.out.println(image_file.getImage1());
+                    if (image_file.getImage1().equalsIgnoreCase("") == true || image_file.getImage2().equalsIgnoreCase("") == true || image_file.getImage1() == null || image_file.getImage2() == null)
                     {
                         int error_row = iCompareCount + 1;
                         model.addAttribute("message", "An error occurred while processing the CSV file. One of the image path in row:" + error_row +" is empty");
                         model.addAttribute("status", false);
-                        break;
+                        image_files.get(iCompareCount).setIsRowError(true);
+                        return "file-upload-status";
                     }
                     double dist_pc = imagelogic.ImageCompare(image_file.getImage1(),image_file.getImage2());
                     long estimatedTime = System.currentTimeMillis() - startTime;
