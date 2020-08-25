@@ -37,9 +37,32 @@ public double ImageCompare(String fileName1, String fileName2)
 View: The view consists of a index.html and results page. Based on the loaded API, the corresponding html is updated and loaded.
 
 
-### Jekyll Themes
+### Building the code
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/onnes-sam/image-compare/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+# Importing to IntelliJ
+Perform the following Steps:
+* `File` > `New` > `Project from Existing Sources...`
+* Select the root folder of this project
+* Select `Import project from external model`
+* Highlight `Maven` and click `Finish`
+
+# Build
+To build:
+```
+./mvnw clean install
+```
+## Run from IntelliJ
+* Right click CompareApplication -> Run/Debug
+
+## Run from Maven
+```
+ mvn spring-boot:run -pl image-compare
+```
+
+## Build 'fat jar' and run
+```
+mvn clean install
+java -jar image-compare/target/image-compare.jar
 
 ### Support or Contact
 
