@@ -39,6 +39,10 @@ public double ImageCompare(String fileName1, String fileName2)
 
 View: The view consists of a index.html and results page. Based on the loaded API, the corresponding html is updated and loaded.
 
+### API documentation
+Once the application is run, the api documentation can be viewed here
+http://localhost:8080/swagger-ui.html#/
+
 
 ### Quick Build
 
