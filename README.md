@@ -7,7 +7,7 @@ API for comparing two images. Uses opencv and springboot to compare two images.
 * Launch http://localhost:8080/
 * Upload csv file and click "Import CSV" button
 * The images in the csv will be compared
-* The results can be downloaded from the results page in the link
+* The results can be downloaded in the link from the results page
 
 ##Technology Stack:
 * Java 11
