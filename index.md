@@ -1,13 +1,9 @@
-## Welcome to GitHub Pages
+## Image Compare API
+This is an image compare api done as an assignment for SRE. The image compare API uses absolute path names of two images in the form of csv to compare the files. The output is in the form of results csv containing the similarity score and time elapsed to do the comparison.
 
-You can use the [editor on GitHub](https://github.com/onnes-sam/image-compare/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+### Solution Design
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
+The solution is designed to work as a web page working with almost all OS with a browser. The index page consists of a place holder to upload the csv file. Processing the csv file happens with the same API. Once the processing is done and the scores are updated, the link to download the csv is updated on the results page.
 ```markdown
 Syntax highlighted code block
 
