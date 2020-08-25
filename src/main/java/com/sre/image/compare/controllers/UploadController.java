@@ -7,6 +7,10 @@ import com.sre.image.compare.domains.CompareProp;
 import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.sre.image.compare.logic.ImageCompareLogic;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.apache.commons.io.ByteOrderMark;
 import org.apache.commons.io.input.BOMInputStream;
 import org.springframework.http.HttpHeaders;
@@ -14,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,14 +30,19 @@ import java.io.StringReader;
 import java.util.List;
 
 @Controller
+@Api(value="images comparison", description="Images comparison through csv")
 public class UploadController {
 
     List<CompareProp> image_files;
 
-    @GetMapping("/")
-    public String index() {
-        return "index";
+    @ApiOperation(value = "Upload images in csv for comparison", response = Iterable.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully uploaded the csv"),
+            @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     }
+    )
 
     @PostMapping("/upload-csv-file")
     public String uploadCSVFile(@RequestParam("file") MultipartFile file, Model model) {
@@ -59,6 +69,13 @@ public class UploadController {
                 for (CompareProp image_file: image_files)
                 {
                     long startTime = System.currentTimeMillis();
+                    if (image_file.getImage1() == null || image_file.getImage2() == null)
+                    {
+                        int error_row = iCompareCount + 1;
+                        model.addAttribute("message", "An error occurred while processing the CSV file. One of the image path in row:" + error_row +" is empty");
+                        model.addAttribute("status", false);
+                        break;
+                    }
                     double dist_pc = imagelogic.ImageCompare(image_file.getImage1(),image_file.getImage2());
                     long estimatedTime = System.currentTimeMillis() - startTime;
                     image_files.get(iCompareCount).setElapsed(estimatedTime);
@@ -77,6 +94,14 @@ public class UploadController {
 
         return "file-upload-status";
     }
+    @ApiOperation(value = "Download the images comparison results", response = Iterable.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successfully uploaded the csv"),
+            @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+    }
+    )
 
     @GetMapping("/export-results")
     public void exportCSV(HttpServletResponse response) throws Exception {
@@ -98,5 +123,18 @@ public class UploadController {
         //write all users to csv file
         writer.write(image_files);
 
+    }
+
+    @ApiOperation(value = "Index Page", response = Iterable.class)
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Api call for index page"),
+            @ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+    }
+    )
+    @GetMapping("/")
+    public String index() {
+        return "index";
     }
 }
