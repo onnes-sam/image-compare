@@ -45,6 +45,8 @@ Perform the following Steps:
 * Select the root folder of this project
 * Select `Import project from external model`
 * Highlight `Maven` and click `Finish`
+* Add JDK 11 in the project structure
+   - Please refer: https://www.jetbrains.com/help/idea/sdk.html#configure-external-documentation
 
 # Build
 To build:
@@ -63,7 +65,7 @@ To build:
 ```
 mvn clean install
 java -jar image-compare/target/image-compare.jar
-
+```
 ### Support or Contact
 
 Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
