@@ -22,6 +22,8 @@ API for comparing two images. Uses opencv and springboot to compare two images.
 *  [IntelliJ IDE Community Edition](https://www.jetbrains.com/idea/)
      - For [MacOS](https://www.jetbrains.com/idea/download/download-thanks.html?platform=mac&code=IIC)
      - For [Windows](https://www.jetbrains.com/idea/download/download-thanks.html?platform=windows&code=IIC)
+* Maven installation
+    - Follow the instructions as explained here [link(Both MacOS & Windows)](https://maven.apache.org/install.html)
 
 # Importing to IntelliJ
 Perform the following Steps:
