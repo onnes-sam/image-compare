@@ -9,11 +9,9 @@ public class CompareProp {
     @CsvBindByName
     private String image2;
     @CsvBindByName
-    private double similarity;
+    private String similarity;
     @CsvBindByName
     private double elapsed;
-
-    private boolean isrowerror;
 
     public CompareProp() {
     }
@@ -42,11 +40,11 @@ public class CompareProp {
         this.image2 = image2;
     }
 
-    public double getSimilarity() {
+    public String getSimilarity() {
         return similarity;
     }
 
-    public void setSimilarity(double similarity) {
+    public void setSimilarity(String similarity) {
         this.similarity = similarity;
     }
 
@@ -56,13 +54,5 @@ public class CompareProp {
 
     public void setElapsed(double elapsed) {
         this.elapsed = elapsed;
-    }
-
-    public boolean getIsRowError() {
-        return isrowerror;
-    }
-
-    public void setIsRowError(boolean isrowerror) {
-        this.isrowerror = isrowerror;
     }
 }

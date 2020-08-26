@@ -24,6 +24,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
+import java.text.NumberFormat;
 import java.util.List;
 
 @Controller
@@ -72,7 +73,7 @@ public class UploadController {
                         int error_row = iCompareCount + 1;
                         model.addAttribute("message", "An error occurred while processing the CSV file. One of the image path in row:" + error_row +" is empty");
                         model.addAttribute("status", false);
-                        image_files.get(iCompareCount).setIsRowError(true);
+                        image_files.get(iCompareCount).setSimilarity("Error");
                         return "file-upload-status";
                     }
                     File image_file_check1 = new File(image_file.getImage1());
@@ -82,7 +83,7 @@ public class UploadController {
                         int error_row = iCompareCount + 1;
                         model.addAttribute("message", "An error occurred while processing the CSV file. Image1 path in row:" + error_row +" is not accessible");
                         model.addAttribute("status", false);
-                        image_files.get(iCompareCount).setIsRowError(true);
+                        image_files.get(iCompareCount).setSimilarity("Error");
                         return "file-upload-status";
                     }
                     if (image_file_check2.exists() == false || image_file_check2.canRead() == false)
@@ -90,14 +91,16 @@ public class UploadController {
                         int error_row = iCompareCount + 1;
                         model.addAttribute("message", "An error occurred while processing the CSV file. Image2 path in row:" + error_row +" is not accessible");
                         model.addAttribute("status", false);
-                        image_files.get(iCompareCount).setIsRowError(true);
+                        image_files.get(iCompareCount).setSimilarity("Error");
                         return "file-upload-status";
                     }
                     double dist_pc = imagelogic.ImageCompare(image_file.getImage1(),image_file.getImage2());
                     long estimatedTime = System.currentTimeMillis() - startTime;
                     double dbl_est_time = (double)estimatedTime/10000;
                     image_files.get(iCompareCount).setElapsed(dbl_est_time);
-                    image_files.get(iCompareCount).setSimilarity(dist_pc);
+                    NumberFormat nf = NumberFormat.getInstance();
+                    nf.setMaximumFractionDigits(4);
+                    image_files.get(iCompareCount).setSimilarity(nf.format(dist_pc));
                     ++iCompareCount;
                 }
                 // save images list on model
