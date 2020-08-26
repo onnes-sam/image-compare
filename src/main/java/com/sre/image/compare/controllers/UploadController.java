@@ -23,10 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.io.StringReader;
+import java.io.*;
 import java.util.List;
 
 @Controller
@@ -74,6 +71,24 @@ public class UploadController {
                     {
                         int error_row = iCompareCount + 1;
                         model.addAttribute("message", "An error occurred while processing the CSV file. One of the image path in row:" + error_row +" is empty");
+                        model.addAttribute("status", false);
+                        image_files.get(iCompareCount).setIsRowError(true);
+                        return "file-upload-status";
+                    }
+                    File image_file_check1 = new File(image_file.getImage1());
+                    File image_file_check2 = new File(image_file.getImage2());
+                    if (image_file_check1.exists() == false || image_file_check1.canRead() == false)
+                    {
+                        int error_row = iCompareCount + 1;
+                        model.addAttribute("message", "An error occurred while processing the CSV file. Image1 path in row:" + error_row +" is not accessible");
+                        model.addAttribute("status", false);
+                        image_files.get(iCompareCount).setIsRowError(true);
+                        return "file-upload-status";
+                    }
+                    if (image_file_check2.exists() == false || image_file_check2.canRead() == false)
+                    {
+                        int error_row = iCompareCount + 1;
+                        model.addAttribute("message", "An error occurred while processing the CSV file. Image2 path in row:" + error_row +" is not accessible");
                         model.addAttribute("status", false);
                         image_files.get(iCompareCount).setIsRowError(true);
                         return "file-upload-status";
