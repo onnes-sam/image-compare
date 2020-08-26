@@ -8,6 +8,8 @@ This is an image compare api done as an assignment for SRE. The image compare AP
 - [Quick Build and run](#quick-build-and-run)
 - [Latest Releases](#latest-releases)
 - [API Testing](#api-testing)
+- [Error Handling](#error-handling)
+- [Future enhancements](#future-enhancements)
 
 ### Quick Start
 See the project [Read-me](https://github.com/onnes-sam/image-compare) here.
@@ -67,3 +69,33 @@ The API can be verified to work through [Postman scripts](https://github.com/onn
 * Postman can be downloaded here [Windows10](https://dl.pstmn.io/download/latest/win64) and [MacOS](https://dl.pstmn.io/download/latest/osx)
 * Import the collection in Postman and run the scripts
 
+### Error Handling
+Currently if the image path is empty or not accessible, the code returns an error message in the results.html page and stops running all image comparisons
+
+### Future Enhancements
+This spring boot app can be updated on a docker image using the springboot jib plugin in pom.xml. This automatically gets a java docker image and implements the jar in the docker image. The docker image can be tagged for release and provided to dev and qa teams
+```
+<project>
+    ...
+    <build>
+        <plugins>
+            ...
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>2.5.0</version>
+                <configuration>
+                    <to>
+                        <image>${image.path}</image>
+                    </to>
+                </configuration>
+            </plugin>
+            ...
+        </plugins>
+    </build>
+    ...
+</project>
+```
+```
+mvn compile jib:build
+```
