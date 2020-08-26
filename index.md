@@ -47,9 +47,9 @@ public double ImageCompare(String fileName1, String fileName2)
 
 View: The view consists of a index.html and results page. Based on the API, the corresponding html is loaded.
 
-[Index Page](docs/index.html.PNG)
+![Index Page](docs/index.html.PNG?raw=true "Index page")
 
-[Results Page](docs/results.html.PNG)
+![Results Page](docs/results.html.PNG?raw=true "Results page")
 
 ### Quick Build and run
 ```
