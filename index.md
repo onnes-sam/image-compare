@@ -72,6 +72,8 @@ The API can be verified to work through [Postman scripts](https://github.com/onn
 ### Error Handling
 Currently if the image path is empty or not accessible, the code returns an error message in the results.html page and stops running all image comparisons
 
+![Error Page](https://github.com/onnes-sam/image-compare/blob/master/docs/error.handling.PNG?raw=true "Error page")
+
 ### Future Enhancements
 This spring boot app can be updated on a docker image using the springboot jib plugin in pom.xml. This automatically gets a java docker image and implements the jar in the docker image. The docker image can be tagged for release and provided to dev and qa teams
 ```
