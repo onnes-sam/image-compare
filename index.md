@@ -37,13 +37,19 @@ Controller: The upload controller has the API's to upload, process a csv and upd
 ```markdown
 @PostMapping("/upload-csv-file")
     public String uploadCSVFile(@RequestParam("file") MultipartFile file, Model model)
+@GetMapping("/export-results")
+    public void exportCSV(HttpServletResponse response) throws Exception
 ```
 The processing of the csv has the image compare logic which accepts the file names and updates the CompareProp object for similarity and time elapsed
 ```markdown
 public double ImageCompare(String fileName1, String fileName2)
 ```
 
-View: The view consists of a index.html and results page. Based on the loaded API, the corresponding html is updated and loaded.
+View: The view consists of a index.html and results page. Based on the API, the corresponding html is loaded.
+
+[Index Page](docs/index.html.PNG)
+
+[Results Page](docs/results.html.PNG)
 
 ### Quick Build and run
 ```
